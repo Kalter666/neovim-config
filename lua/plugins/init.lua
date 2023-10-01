@@ -291,7 +291,7 @@ local default_plugins = {
   },
   {
     "akinsho/git-conflict.nvim",
-    version = "*",
+    version = "1.2.2",
     config = function ()
       require("git-conflict").setup({
         default_mappings = false,
@@ -302,7 +302,7 @@ local default_plugins = {
         },
     })
     end
-  }
+  },
  }
 
 local config = require("core.utils").load_config()
