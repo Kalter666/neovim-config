@@ -355,7 +355,7 @@ local default_plugins = {
     dependencies = { 'nvim-lua/plenary.nvim', "nvim-telescope/telescope.nvim" },
     keys = {
       {
-        '<leader>gg',
+        '<leader>gl',
         "<cmd>LazyGit<cr>",
         desc = "Open LazyGit"
       },
@@ -368,6 +368,22 @@ local default_plugins = {
     config = function()
       require("telescope").load_extension("lazygit")
     end
+  },
+  {
+    "tpope/vim-fugitive",
+    cmd = "Git",
+    keys = {
+      {
+        '<leader>gg',
+        '<cmd>Git<cr>',
+        desc = 'Open Git fugitive'
+      },
+      {
+        '<leader>gs',
+        '<cmd>Gvdiffsplit!<cr>',
+        desc = "Open Conflict Split"
+      }
+    },
   }
  }
 
