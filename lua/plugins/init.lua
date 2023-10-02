@@ -303,6 +303,56 @@ local default_plugins = {
     })
     end
   },
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      signs = false,
+      keywords = {
+        FIX = {
+          icon = ' ',
+          color = 'error',
+          alt = { 'FIXME', 'BUG', 'FIXIT', 'FIX', 'ISSUE' },
+        },
+        TODO = { icon = ' ', color = 'info' },
+        HACK = {
+          icon = ' ',
+          color = 'warning',
+          alt = { 'FUCK', 'SHIT', 'BAD' },
+        },
+        WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
+        PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
+        NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
+      },
+    },
+    cmd = { 'TodoTelescope', 'TodoTrouble', 'TodoQuickFix', 'TodoLocList' },
+  },
+  {
+    'm-demare/hlargs.nvim',
+    opts = { color = '#ffb86c' },
+    event = { 'BufReadPost' },
+  },
+  {
+    'cshuaimin/ssr.nvim',
+    keys = {
+      {
+        '<leader>cr',
+        function()
+          require('ssr').open()
+        end,
+        mode = { 'n', 'v' },
+        desc = 'Advanced Replace',
+      },
+    },
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    cmd = { 'LazyGit', 'LazyGitFilter', 'LazyGitFilterCurrentFile' },
+    dependencies = { 'nvim-lua/plenary.nvim', "nvim-telescope/telescope.nvim" },
+    config = function() 
+      require("telescope").load_extension("lazygit")
+    end
+  }
  }
 
 local config = require("core.utils").load_config()
