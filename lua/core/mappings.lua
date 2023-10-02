@@ -464,5 +464,12 @@ M.gitsigns = {
     },
   },
 }
-
+-- M.lazy = {
+--   ["<leader>gg"] = {
+--     function()
+--       require("lazygit")
+--     end,
+--     "LazyGit"
+--   }
+-- }
 return M
