@@ -292,15 +292,19 @@ local default_plugins = {
   {
     "akinsho/git-conflict.nvim",
     version = "1.2.2",
-    config = function ()
-      require("git-conflict").setup({
-        default_mappings = false,
-        disable_diagnostics = false,
-        highlights = {
-          incoming = 'DiffAdd',
-          current = 'DiffChange',
-        },
-    })
+    config = function()
+      require("git-conflict").setup({})
+
+      vim.api.nvim_create_autocommand('User', {
+        pattern = 'GitConflictDetected',
+        callback = function()
+          vim.notify('Conflict detected in '..vim.fn.expand('<afile>'))
+          vim.keymap.set('n', 'cww', function()
+            engage.conflict_buster()
+            create_buffer_local_mappings()
+          end)
+        end
+      })
     end
   },
   {
@@ -349,7 +353,19 @@ local default_plugins = {
     'kdheepak/lazygit.nvim',
     cmd = { 'LazyGit', 'LazyGitFilter', 'LazyGitFilterCurrentFile' },
     dependencies = { 'nvim-lua/plenary.nvim', "nvim-telescope/telescope.nvim" },
-    config = function() 
+    keys = {
+      {
+        '<leader>gg',
+        "<cmd>LazyGit<cr>",
+        desc = "Open LazyGit"
+      },
+      {
+        '<leader>gf',
+        "<cmd>LazyGitFilter<cr>",
+        desc = "Open LazyGitFilter"
+      }
+    },
+    config = function()
       require("telescope").load_extension("lazygit")
     end
   }
