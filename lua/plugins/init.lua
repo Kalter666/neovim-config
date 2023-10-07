@@ -230,7 +230,7 @@ local default_plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+    dependencies = { "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, "xiyaowong/telescope-emoji.nvim" },
     cmd = "Telescope",
     init = function()
       require("core.utils").load_mappings "telescope"
@@ -384,6 +384,10 @@ local default_plugins = {
         desc = "Open Conflict Split"
       }
     },
+  },
+  {
+    'ryanoasis/vim-devicons',
+    config = true,
   }
  }
 
