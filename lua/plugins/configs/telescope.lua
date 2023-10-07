@@ -49,7 +49,7 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms", "fzf" },
+  extensions_list = { "themes", "terms", "fzf", "emoji" },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -57,6 +57,12 @@ local options = {
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    emoji = {
+      action = function(emoji)
+        vim.fn.setreq("*", emoji.value)
+        print([[Press p or "*p to paste this emoji]] .. emoji.value)
+      end,
+    }
   },
 }
 
