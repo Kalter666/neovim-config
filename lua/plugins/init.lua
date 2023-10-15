@@ -183,7 +183,7 @@ local default_plugins = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
-        "Exafunction/codeium.nvim"
+        "Exafunction/codeium.nvim",
       },
     },
     opts = function()
@@ -230,7 +230,11 @@ local default_plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, "xiyaowong/telescope-emoji.nvim" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "xiyaowong/telescope-emoji.nvim",
+    },
     cmd = "Telescope",
     init = function()
       require("core.utils").load_mappings "telescope"
@@ -254,36 +258,35 @@ local default_plugins = {
   {
     "folke/which-key.nvim",
     keys = { "<leader>", "<c-r>", '"', "'", "`", "c", "v", "g" },
-    init = function()
-    end,
+    init = function() end,
     cmd = "WhichKey",
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "whichkey")
       require("which-key").setup(opts)
     end,
-  },-- Remove the `use` here if you're using folke/lazy.nvim.
+  }, -- Remove the `use` here if you're using folke/lazy.nvim.
   -- AI garbage
   {
     "Exafunction/codeium.nvim",
     dependencies = {
-        "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
     },
     cmd = "Codeium",
     config = function()
-        require("codeium").setup({})
-    end
+      require("codeium").setup {}
+    end,
   },
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
+      "nvim-lua/plenary.nvim", -- required
       "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim",        -- optional
-      "ibhagwan/fzf-lua",              -- optional
+      "sindrets/diffview.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
     },
     cmd = "Neogit",
-    config = true
+    config = true,
   },
   {
     "nvim-treesitter/nvim-tree-docs",
@@ -293,103 +296,113 @@ local default_plugins = {
     "akinsho/git-conflict.nvim",
     version = "1.2.2",
     config = function()
-      require("git-conflict").setup({})
+      require("git-conflict").setup {}
 
-      vim.api.nvim_create_autocommand('User', {
-        pattern = 'GitConflictDetected',
+      vim.api.nvim_create_autocommand("User", {
+        pattern = "GitConflictDetected",
         callback = function()
-          vim.notify('Conflict detected in '..vim.fn.expand('<afile>'))
-          vim.keymap.set('n', 'cww', function()
+          vim.notify("Conflict detected in " .. vim.fn.expand "<afile>")
+          vim.keymap.set("n", "cww", function()
             engage.conflict_buster()
             create_buffer_local_mappings()
           end)
-        end
+        end,
       })
-    end
+    end,
   },
   {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       signs = false,
       keywords = {
         FIX = {
-          icon = ' ',
-          color = 'error',
-          alt = { 'FIXME', 'BUG', 'FIXIT', 'FIX', 'ISSUE' },
+          icon = " ",
+          color = "error",
+          alt = { "FIXME", "BUG", "FIXIT", "FIX", "ISSUE" },
         },
-        TODO = { icon = ' ', color = 'info' },
+        TODO = { icon = " ", color = "info" },
         HACK = {
-          icon = ' ',
-          color = 'warning',
-          alt = { 'FUCK', 'SHIT', 'BAD' },
+          icon = " ",
+          color = "warning",
+          alt = { "FUCK", "SHIT", "BAD" },
         },
-        WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
-        PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
-        NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
+        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
       },
     },
-    cmd = { 'TodoTelescope', 'TodoTrouble', 'TodoQuickFix', 'TodoLocList' },
+    cmd = { "TodoTelescope", "TodoTrouble", "TodoQuickFix", "TodoLocList" },
   },
   {
-    'm-demare/hlargs.nvim',
-    opts = { color = '#ffb86c' },
-    event = { 'BufReadPost' },
+    "m-demare/hlargs.nvim",
+    opts = { color = "#ffb86c" },
+    event = { "BufReadPost" },
   },
   {
-    'cshuaimin/ssr.nvim',
+    "cshuaimin/ssr.nvim",
     keys = {
       {
-        '<leader>cr',
+        "<leader>cr",
         function()
-          require('ssr').open()
+          require("ssr").open()
         end,
-        mode = { 'n', 'v' },
-        desc = 'Advanced Replace',
+        mode = { "n", "v" },
+        desc = "Advanced Replace",
       },
     },
   },
   {
-    'kdheepak/lazygit.nvim',
-    cmd = { 'LazyGit', 'LazyGitFilter', 'LazyGitFilterCurrentFile' },
-    dependencies = { 'nvim-lua/plenary.nvim', "nvim-telescope/telescope.nvim" },
+    "kdheepak/lazygit.nvim",
+    cmd = { "LazyGit", "LazyGitFilter", "LazyGitFilterCurrentFile" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     keys = {
       {
-        '<leader>gl',
+        "<leader>gl",
         "<cmd>LazyGit<cr>",
-        desc = "Open LazyGit"
+        desc = "Open LazyGit",
       },
       {
-        '<leader>gf',
+        "<leader>gf",
         "<cmd>LazyGitFilter<cr>",
-        desc = "Open LazyGitFilter"
-      }
+        desc = "Open LazyGitFilter",
+      },
     },
     config = function()
-      require("telescope").load_extension("lazygit")
-    end
+      require("telescope").load_extension "lazygit"
+    end,
   },
   {
     "tpope/vim-fugitive",
     cmd = "Git",
     keys = {
       {
-        '<leader>gg',
-        '<cmd>Git<cr>',
-        desc = 'Open Git fugitive'
+        "<leader>gg",
+        "<cmd>Git<cr>",
+        desc = "Open Git fugitive",
       },
       {
-        '<leader>gs',
-        '<cmd>Gvdiffsplit!<cr>',
-        desc = "Open Conflict Split"
-      }
+        "<leader>gs",
+        "<cmd>Gvdiffsplit!<cr>",
+        desc = "Open Conflict Split",
+      },
     },
   },
   {
-    'ryanoasis/vim-devicons',
+    "ryanoasis/vim-devicons",
     config = true,
-  }
- }
+  },
+  {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup {}
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+}
 
 local config = require("core.utils").load_config()
 
