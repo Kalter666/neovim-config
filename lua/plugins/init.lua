@@ -410,6 +410,10 @@ local default_plugins = {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  {
+    "folke/twilight.nvim",
+    config = true,
+  },
 }
 
 local config = require("core.utils").load_config()
