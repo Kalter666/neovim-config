@@ -402,6 +402,14 @@ local default_plugins = {
       "nvim-tree/nvim-web-devicons",
     },
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
 
 local config = require("core.utils").load_config()
