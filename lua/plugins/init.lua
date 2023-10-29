@@ -419,9 +419,8 @@ local default_plugins = {
       vim.api.nvim_create_autocmd({ "CursorMoved" }, {
         group = vim.api.nvim_create_augroup("LspsagaDocsEnter", { clear = true }),
         callback = function()
-          if vim.v.shell_error == 0 then
-            local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-            if filetype == "javascript" or filetype == "typescript" then
+          if vim.v.shell_error == 0 and vim.bo.buftype ~= "nofile" then
+            if next(vim.lsp.buf_get_clients()) ~= nil then
               vim.schedule(function()
                 vim.cmd ":Lspsaga hover_doc"
               end)
