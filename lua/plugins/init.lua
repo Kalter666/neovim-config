@@ -447,7 +447,9 @@ local default_plugins = {
   },
   {
     "folke/twilight.nvim",
-    config = true,
+    config = function()
+      require("twilight").setup()
+    end,
   },
   {
     "piersolenski/telescope-import.nvim",
