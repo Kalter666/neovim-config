@@ -112,6 +112,7 @@ local default_plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "git")
       require("gitsigns").setup(opts)
+      require("scrollbar.handlers.gitsigns").setup()
     end,
   },
 
@@ -414,6 +415,26 @@ local default_plugins = {
     "folke/twilight.nvim",
     config = true,
   },
+  {
+    "piersolenski/telescope-import.nvim",
+    requires = "nvim-telescope/telescope.nvim",
+    config = function()
+      require("telescope").load_extension "import"
+    end,
+    keys = {
+      {
+        "<leader>im",
+        "<cmd>Telescope import<cr>",
+        desc = "Import",
+      },
+    },
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("scrollbar").setup()
+    end,
+  }
 }
 
 local config = require("core.utils").load_config()
