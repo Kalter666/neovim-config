@@ -294,7 +294,7 @@ local default_plugins = {
     config = true,
   },
   {
-    "akinsho/git-conflict.nvim",
+    "akinsh=o/git-conflict.nvim",
     version = "1.2.2",
     config = function()
       require("git-conflict").setup {}
@@ -406,12 +406,30 @@ local default_plugins = {
   {
     "nvimdev/lspsaga.nvim",
     config = function()
-      require("lspsaga").setup {}
+      require("lspsaga").setup {
+        silent = true,
+      }
     end,
+    cmd = { "Lspsaga" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
+    init = function()
+      vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+        group = vim.api.nvim_create_augroup("LspsagaDocsEnter", { clear = true }),
+        callback = function()
+          if vim.v.shell_error == 0 then
+            local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+            if filetype == "javascript" or filetype == "typescript" then
+              vim.schedule(function()
+                vim.cmd ":Lspsaga hover_doc"
+              end)
+            end
+          end
+        end,
+      })
+    end,
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -471,6 +489,50 @@ local default_plugins = {
       require("hlchunk").setup {}
     end,
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {
+      always_trigger = true,
+      floating_window = true,
+      hint_enable = true,
+    },
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
+  },
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {},
+    config = function(_, opts)
+      require("fidget").setup(opts)
+    end,
+  },
+  -- {
+  --   "amrbashir/nvim-docs-view",
+  --   config = function()
+  --     require("docs-view").setup {
+  --       position = "right",
+  --       width = 60,
+  --     }
+  --   end,
+  --   cmd = { "DocsViewToggle" },
+  --   init = function()
+  --     vim.api.nvim_create_autocmd({ "BufRead" }, {
+  --       group = vim.api.nvim_create_augroup("DocsViewLazyLoad", { clear = true }),
+  --       callback = function()
+  --         if vim.v.shell_error == 0 then
+  --           vim.api.nvim_del_augroup_by_name "DocsViewLazyLoad"
+  --           vim.schedule(function()
+  --             vim.cmd(":DocsViewToggle")
+  --           end)
+  --         end
+  --       end,
+  --     })
+  --   end,
+  -- },
 }
 
 local config = require("core.utils").load_config()
