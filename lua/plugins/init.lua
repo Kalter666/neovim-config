@@ -315,7 +315,7 @@ local default_plugins = {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
-      signs = false,
+      signs = true,
       keywords = {
         FIX = {
           icon = " ",
@@ -334,6 +334,16 @@ local default_plugins = {
       },
     },
     cmd = { "TodoTelescope", "TodoTrouble", "TodoQuickFix", "TodoLocList" },
+    keys = {
+      {
+        "<leader>ft",
+        "<cmd>TodoTelescope<cr>",
+        desc = "Open TODOs",
+      },
+    },
+    config = function(_, opts)
+      require("todo-comments").setup(opts)
+    end,
   },
   {
     "m-demare/hlargs.nvim",
@@ -438,16 +448,29 @@ local default_plugins = {
   {
     "tmillr/sos.nvim",
     config = function()
-      require("sos").setup({
+      require("sos").setup {
         enable = true,
         timeout = 2000,
         save_on_cmd = "all",
         save_on_bufleave = true,
         save_on_focuslost = true,
         autowrite = true,
-      })
+      }
     end,
-  }
+  },
+  {
+    "elentok/format-on-save.nvim",
+    config = function()
+      require("format-on-save").setup {}
+    end,
+  },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    config = function()
+      require("hlchunk").setup {}
+    end,
+  },
 }
 
 local config = require("core.utils").load_config()
