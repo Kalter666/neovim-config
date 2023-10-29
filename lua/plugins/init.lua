@@ -434,6 +434,19 @@ local default_plugins = {
     config = function()
       require("scrollbar").setup()
     end,
+  },
+  {
+    "tmillr/sos.nvim",
+    config = function()
+      require("sos").setup({
+        enable = true,
+        timeout = 2000,
+        save_on_cmd = "all",
+        save_on_bufleave = true,
+        save_on_focuslost = true,
+        autowrite = true,
+      })
+    end,
   }
 }
 
