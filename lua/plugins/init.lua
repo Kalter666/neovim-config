@@ -526,6 +526,10 @@ local default_plugins = {
     branch = "master",
     cmd = { "SnipRun", "SnipLive", "SnipRunOperator" },
     build = "sh install.sh",
+    keys = {
+      { "<leader>rs", "<cmd>SnipRun<cr>", mode = "n", desc = "Run SnipRun" },
+      { "<leader>r", "<cmd>'<,'>SnipRun<cr>", mode = "v", desc = "Run SnipRun" },
+    },
     -- do 'sh install.sh 1' if you want to force compile locally
     -- (instead of fetching a binary from the github release). Requires Rust >= 1.65
     dependencies = { "rcarriga/nvim-notify" },
@@ -534,7 +538,7 @@ local default_plugins = {
         -- your options
         display = { "NvimNotify" },
         display_options = {
-          notification_timeout = 5, -- in seconds
+          notification_timeout = 60, -- in seconds
         },
         live_mode_toggle = "enable",
         live_display = { "NvimNotify", "TerminalOk" },
@@ -542,11 +546,11 @@ local default_plugins = {
     end,
   },
   {
-    "b0o/schemastore.nvim"
+    "b0o/schemastore.nvim",
   },
   {
     "RRethy/vim-illuminate",
-  }
+  },
   -- {
   --   "amrbashir/nvim-docs-view",
   --   config = function()
