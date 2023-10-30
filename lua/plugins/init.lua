@@ -518,6 +518,35 @@ local default_plugins = {
       require("fidget").setup(opts)
     end,
   },
+  {
+    "rcarriga/nvim-notify",
+  },
+  {
+    "michaelb/sniprun",
+    branch = "master",
+    cmd = { "SnipRun", "SnipLive", "SnipRunOperator" },
+    build = "sh install.sh",
+    -- do 'sh install.sh 1' if you want to force compile locally
+    -- (instead of fetching a binary from the github release). Requires Rust >= 1.65
+    dependencies = { "rcarriga/nvim-notify" },
+    config = function()
+      require("sniprun").setup {
+        -- your options
+        display = { "NvimNotify" },
+        display_options = {
+          notification_timeout = 5, -- in seconds
+        },
+        live_mode_toggle = "enable",
+        live_display = { "NvimNotify", "TerminalOk" },
+      }
+    end,
+  },
+  {
+    "b0o/schemastore.nvim"
+  },
+  {
+    "RRethy/vim-illuminate",
+  }
   -- {
   --   "amrbashir/nvim-docs-view",
   --   config = function()
