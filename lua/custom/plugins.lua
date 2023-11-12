@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -47,6 +47,21 @@ local plugins = {
     end,
   },
 
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return require "custom.configs.formatter"
+  --   end,
+  -- },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "custom.configs.lint"
+  --   end,
+  -- },
+  --
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
