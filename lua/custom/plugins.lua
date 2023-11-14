@@ -9,12 +9,12 @@ local plugins = {
     "neovim/nvim-lspconfig",
     dependencies = {
       -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
+      -- {
+      --   "jose-elias-alvarez/null-ls.nvim",
+      --   config = function()
+      --     require "custom.configs.null-ls"
+      --   end,
+      -- },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -47,34 +47,26 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "custom.configs.formatter"
-  --   end,
-  -- },
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require "custom.configs.lint"
-  --   end,
-  -- },
-  --
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
+  {
+    "mhartington/formatter.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.formatter"
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function()
+      require "custom.configs.lint"
+    end,
+  },
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
+  {
+    "mg979/vim-visual-multi",
+  },
 }
 
 return plugins
