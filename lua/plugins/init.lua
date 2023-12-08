@@ -414,28 +414,30 @@ local default_plugins = {
     keys = {
       { "<leader>ln", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "LSP diagnostics jump next" },
       { "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "LSP diagnostics jump previous" },
+      { "<leader>K", "<cmd>Lspsaga hover_doc<cr>", desc = "LSP hover documentation" },
+      { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "LSP rename" },
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    init = function()
-      vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-        group = vim.api.nvim_create_augroup("LspsagaDocsEnter", { clear = true }),
-        callback = function()
-          if vim.v.shell_error == 0 and vim.bo.buftype ~= "nofile" then
-            if next(vim.lsp.buf_get_clients()) ~= nil then
-              local diagnostics = vim.lsp.diagnostic.get_line_diagnostics()
-              if #diagnostics == 0 then
-                vim.schedule(function()
-                  vim.cmd ":Lspsaga hover_doc"
-                end)
-              end
-            end
-          end
-        end,
-      })
-    end,
+    -- init = function()
+    --   vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+    --     group = vim.api.nvim_create_augroup("LspsagaDocsEnter", { clear = true }),
+    --     callback = function()
+    --       if vim.v.shell_error == 0 and vim.bo.buftype ~= "nofile" then
+    --         if next(vim.lsp.buf_get_clients()) ~= nil then
+    --           local diagnostics = vim.lsp.diagnostic.get_line_diagnostics()
+    --           if #diagnostics == 0 then
+    --             vim.schedule(function()
+    --               vim.cmd ":Lspsaga hover_doc"
+    --             end)
+    --           end
+    --         end
+    --       end
+    --     end,
+    --   })
+    -- end,
   },
   {
     "iamcco/markdown-preview.nvim",
