@@ -7,6 +7,6 @@ ft("lua"):fmt("stylua"):lint "selene"
 
 ft("go"):fmt "gofmt"
 
-ft("sql"):fmt("sqlfluff"):lint "sqlfluff_fix"
+ft("sql"):fmt("sqlfluff"):lint "sqlfluff"
 
 return guard
