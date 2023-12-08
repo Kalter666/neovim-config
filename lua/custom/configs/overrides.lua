@@ -41,7 +41,8 @@ M.mason = {
     "clangd",
     "clang-format",
     "rust-analyzer",
-    "selene"
+    "selene",
+    "sqlfluff",
   },
 }
 
