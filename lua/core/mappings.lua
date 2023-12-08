@@ -47,9 +47,7 @@ M.general = {
     ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 
     ["<leader>fm"] = {
-      function()
-        vim.lsp.buf.format { async = true }
-      end,
+      "<cmd>GuardFmt<CR>",
       "LSP formatting",
     },
   },
