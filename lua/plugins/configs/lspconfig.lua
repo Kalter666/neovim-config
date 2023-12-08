@@ -64,16 +64,16 @@ require("lspconfig").lua_ls.setup {
   },
 }
 
-require('lspconfig').jsonls.setup {
+require("lspconfig").jsonls.setup {
   settings = {
     json = {
-      schemas = require('schemastore').json.schemas(),
+      schemas = require("schemastore").json.schemas(),
       validate = { enable = true },
     },
   },
 }
 
-require('lspconfig').yamlls.setup {
+require("lspconfig").yamlls.setup {
   settings = {
     yaml = {
       schemaStore = {
@@ -83,9 +83,15 @@ require('lspconfig').yamlls.setup {
         -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
         url = "",
       },
-      schemas = require('schemastore').yaml.schemas(),
+      schemas = require("schemastore").yaml.schemas(),
     },
   },
+}
+
+require("lspconfig").pyright.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  filetypes = { "python" },
 }
 
 return M

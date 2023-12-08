@@ -42,7 +42,12 @@ M.mason = {
     "rust-analyzer",
     "selene",
     "sqlfluff",
-    "hlint",
+    "haskell-language-server",
+    "pyright",
+    "mypy",
+    "ruff",
+    "clangd",
+    "clang-format",
   },
 }
 
