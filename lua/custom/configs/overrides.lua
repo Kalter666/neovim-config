@@ -43,6 +43,7 @@ M.mason = {
     "rust-analyzer",
     "selene",
     "sqlfluff",
+    "hlint",
   },
 }
 

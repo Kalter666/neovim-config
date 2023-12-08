@@ -9,4 +9,6 @@ ft("go"):fmt "gofmt"
 
 ft("sql"):fmt("sqlfluff"):lint "sqlfluff"
 
+ft("haskell"):lint "hlint"
+
 return guard
