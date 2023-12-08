@@ -47,26 +47,37 @@ local plugins = {
     end,
   },
 
-  {
-    "mhartington/formatter.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return require "custom.configs.formatter"
-    end,
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.lint"
-    end,
-  },
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return require "custom.configs.formatter"
+  --   end,
+  -- },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require "custom.configs.lint"
+  --   end,
+  -- },
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
   },
+  {
+    "nvimdev/guard.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvimdev/guard-collection" },
+    config = function()
+      require("custom.configs.guard").setup({
+        fmt_on_save = true,
+        lsp_as_default_formatter = true,
+      })
+    end,
+  }
 }
 
 return plugins
