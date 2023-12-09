@@ -11,10 +11,4 @@ ft("sql"):fmt("sqlfluff"):lint "sqlfluff"
 
 ft("haskell"):lint "hlint"
 
-ft("rust"):fmt "rustfmt"
-
-ft("python"):fmt("ruff"):lint "mypy"
-
-ft("cpp,c"):fmt "clang-format"
-
 return guard
