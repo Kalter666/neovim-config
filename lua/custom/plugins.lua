@@ -66,48 +66,18 @@ local plugins = {
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
-    event = "VeryLazy",
   },
   {
     "nvimdev/guard.nvim",
     event = "VeryLazy",
     dependencies = { "nvimdev/guard-collection" },
     config = function()
-      require("custom.configs.guard").setup {
+      require("custom.configs.guard").setup({
         fmt_on_save = true,
         lsp_as_default_formatter = true,
-      }
+      })
     end,
-  },
-  {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap",
-    event = "VeryLazy",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-      "nvim-telescope/telescope-dap.nvim",
-    },
-  },
-  {
-    "saecki/crates.nvim",
-    ft = { "rust", "toml" },
-    config = function(_, opts)
-      local crates = require "crates"
-      crates.setup(opts)
-      crates.show()
-    end,
-  },
+  }
 }
 
 return plugins

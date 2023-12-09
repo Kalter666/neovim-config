@@ -111,7 +111,6 @@ local options = {
     { name = "nvim_lua" },
     { name = "path" },
     { name = "codeium" },
-    { name = "crates" },
   },
 }
 
