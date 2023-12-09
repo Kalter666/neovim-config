@@ -72,12 +72,35 @@ local plugins = {
     event = "VeryLazy",
     dependencies = { "nvimdev/guard-collection" },
     config = function()
-      require("custom.configs.guard").setup({
+      require("custom.configs.guard").setup {
         fmt_on_save = true,
         lsp_as_default_formatter = true,
-      })
+      }
     end,
-  }
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+  },
+  {
+    "mfussenegger/nvim-dap",
+    event = "VeryLazy",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-telescope/telescope-dap.nvim",
+    },
+  },
+  {
+    "saecki/crates.nvim",
+    ft = { "rust", "toml" },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
+    end,
+  },
 }
 
 return plugins
