@@ -46,8 +46,6 @@ M.mason = {
     "pyright",
     "mypy",
     "ruff",
-    "clangd",
-    "clang-format",
   },
 }
 
