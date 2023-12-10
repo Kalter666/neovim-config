@@ -455,7 +455,7 @@ local default_plugins = {
   },
   {
     "piersolenski/telescope-import.nvim",
-    requires = "nvim-telescope/telescope.nvim",
+    dependencies = "nvim-telescope/telescope.nvim",
     config = function()
       require("telescope").load_extension "import"
     end,
