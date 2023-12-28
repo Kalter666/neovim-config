@@ -46,6 +46,16 @@ M.mason = {
     "pyright",
     "mypy",
     "ruff",
+    "shellcheck",
+    "semgrep",
+    "vacuum",
+    "actionlint",
+    "buf",
+    "cpplint",
+    "hadolint",
+    "markdownlint",
+    "revive",
+    "stylelint",
   },
 }
 
