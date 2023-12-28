@@ -33,13 +33,12 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- format & linting
-      -- {
-      --   "jose-elias-alvarez/null-ls.nvim",
-      --   config = function()
-      --     require "custom.configs.null-ls"
-      --   end,
-      -- },
+      {
+        "nvimtools/none-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -92,17 +91,17 @@ local plugins = {
   {
     "mg979/vim-visual-multi",
   },
-  {
-    "nvimdev/guard.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvimdev/guard-collection" },
-    config = function()
-      require("custom.configs.guard").setup {
-        fmt_on_save = true,
-        lsp_as_default_formatter = true,
-      }
-    end,
-  },
+  -- {
+  --   "nvimdev/guard.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "nvimdev/guard-collection" },
+  --   config = function()
+  --     require("custom.configs.guard").setup {
+  --       fmt_on_save = true,
+  --       lsp_as_default_formatter = true,
+  --     }
+  --   end,
+  -- },
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
@@ -125,6 +124,14 @@ local plugins = {
       crates.setup(opts)
       crates.show()
     end,
+  },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
 }
 
