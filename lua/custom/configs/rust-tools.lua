@@ -5,6 +5,9 @@ local options = {
   servers = {
     on_attach = on_attach,
     capabilities = capabilities,
+    checkOnSave = {
+      command = "clippy",
+    }
   },
 }
 
