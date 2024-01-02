@@ -56,7 +56,6 @@ M.mason = {
     "markdownlint",
     "revive",
     "stylelint",
-    "rust-analyzer",
   },
 }
 

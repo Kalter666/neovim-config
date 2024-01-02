@@ -416,6 +416,7 @@ local default_plugins = {
       { "<leader>lp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "LSP diagnostics jump previous" },
       { "<leader>K", "<cmd>Lspsaga hover_doc<cr>", desc = "LSP hover documentation" },
       { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "LSP rename" },
+      { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "LSP code action" },
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",

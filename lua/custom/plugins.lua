@@ -136,6 +136,11 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+  {
+    "mrcjkb/haskell-tools.nvim",
+    ft = {'haskell', 'cabal', 'lhaskell', 'cabalproject'},
+    dependencies = 'neovim/nvim-lspconfig',
+  }
 }
 
 return plugins
