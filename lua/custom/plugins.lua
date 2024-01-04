@@ -140,6 +140,11 @@ local plugins = {
     "mrcjkb/haskell-tools.nvim",
     ft = {'haskell', 'cabal', 'lhaskell', 'cabalproject'},
     dependencies = 'neovim/nvim-lspconfig',
+  },
+  {
+    "terrastruct/d2-vim",
+    ft = {'d2'},
+    event = "VeryLazy",
   }
 }
 
