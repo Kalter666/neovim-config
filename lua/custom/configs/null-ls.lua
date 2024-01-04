@@ -58,7 +58,7 @@ local sources = {
   b.diagnostics.hadolint,
   b.diagnostics.markdownlint,
   b.diagnostics.sqlfluff,
-  b.builtins.formatting.d2_fmt,
+  b.formatting.d2_fmt,
 }
 
 null_ls.setup {
