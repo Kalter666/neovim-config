@@ -545,6 +545,11 @@ local default_plugins = {
         },
         live_mode_toggle = "enable",
         live_display = { "NvimNotify", "TerminalOk" },
+        interpreter_options = {
+          Rust_original = {
+            compiler = "rustc",
+          }
+        }
       }
     end,
   },
