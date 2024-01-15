@@ -14,6 +14,9 @@ M.treesitter = {
     "markdown_inline",
     "rust",
     "zig",
+    "jsdoc",
+    "comment",
+    "ispc"
   },
   indent = {
     enable = true,

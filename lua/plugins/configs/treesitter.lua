@@ -8,8 +8,7 @@ local options = {
 
   indent = { enable = true },
 
-  tree_docs = { enable = true },
-
+  auto_install = true,
 }
 
 return options
