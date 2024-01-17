@@ -138,14 +138,18 @@ local plugins = {
   },
   {
     "mrcjkb/haskell-tools.nvim",
-    ft = {'haskell', 'cabal', 'lhaskell', 'cabalproject'},
-    dependencies = 'neovim/nvim-lspconfig',
+    ft = { "haskell", "cabal", "lhaskell", "cabalproject" },
+    dependencies = "neovim/nvim-lspconfig",
   },
   {
     "terrastruct/d2-vim",
-    ft = {'d2'},
+    ft = { "d2" },
     event = "VeryLazy",
-  }
+  },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+  },
 }
 
 return plugins
