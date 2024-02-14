@@ -129,14 +129,6 @@ local plugins = {
     end,
   },
   {
-    "ThePrimeagen/refactoring.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
-  {
     "mrcjkb/haskell-tools.nvim",
     ft = { "haskell", "cabal", "lhaskell", "cabalproject" },
     dependencies = "neovim/nvim-lspconfig",

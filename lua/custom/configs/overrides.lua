@@ -51,7 +51,6 @@ M.mason = {
     "mypy",
     "ruff",
     "shellcheck",
-    "semgrep",
     "vacuum",
     "actionlint",
     "buf",
