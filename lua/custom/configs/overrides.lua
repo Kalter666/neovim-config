@@ -16,7 +16,7 @@ M.treesitter = {
     "zig",
     "jsdoc",
     "comment",
-    "ispc"
+    "ispc",
   },
   indent = {
     enable = true,
@@ -39,6 +39,7 @@ M.mason = {
     "deno",
     "prettier",
     "json-lsp",
+    "eslint-lsp",
 
     -- c/cpp stuff
     "clangd",
@@ -49,7 +50,7 @@ M.mason = {
     "haskell-language-server",
     "pyright",
     "mypy",
-    "ruff",
+    "ruff-lsp",
     "shellcheck",
     "vacuum",
     "actionlint",
@@ -59,6 +60,7 @@ M.mason = {
     "markdownlint",
     "revive",
     "stylelint",
+    "cmake-language-server",
   },
 }
 
