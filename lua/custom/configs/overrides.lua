@@ -61,6 +61,7 @@ M.mason = {
     "revive",
     "stylelint",
     "cmake-language-server",
+    "yaml-language-server",
   },
 }
 
