@@ -42,7 +42,6 @@ M.mason = {
     "eslint-lsp",
 
     -- c/cpp stuff
-    "clangd",
     "clang-format",
     "rust-analyzer",
     "selene",
@@ -50,6 +49,7 @@ M.mason = {
     "haskell-language-server",
     "pyright",
     "mypy",
+    "zls",
     "ruff-lsp",
     "shellcheck",
     "vacuum",
