@@ -62,6 +62,7 @@ M.mason = {
     "stylelint",
     "cmake-language-server",
     "yaml-language-server",
+    "gopls",
   },
 }
 

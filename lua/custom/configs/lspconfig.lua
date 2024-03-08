@@ -18,6 +18,7 @@ local servers = {
   "jsonls",
   "cmake",
   "zls",
+  "gopls",
 }
 
 for _, lsp in ipairs(servers) do
