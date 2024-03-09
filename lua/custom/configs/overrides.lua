@@ -63,6 +63,7 @@ M.mason = {
     "cmake-language-server",
     "yaml-language-server",
     "gopls",
+    "angular-language-server",
   },
 }
 
